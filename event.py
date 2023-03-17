@@ -63,7 +63,7 @@ class Event(BlockRoot):
 
     def __init__(self, eid: EventId, title, desc="placeholder event desc", theme="seduction",
                  animation_left=FLIRTATION, animation_right=FLIRTATION_LEFT, options=(),
-                 root_gender=FEMALE,
+                 root_gender=MALE,
                  partner_gender=MALE,
                  # whether this event removes their clothes
                  root_removes_clothes=False,
