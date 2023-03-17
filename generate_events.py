@@ -151,29 +151,29 @@ def generate_strings(events, options):
         with Block(b, IF):
             with Block(b, LIMIT):
                 b.assign(IS_SPOUSE_OF, AFFAIRS_PARTNER)
-                inside_limit_check_gender(b, FEMALE, MALE)
+                inside_limit_check_gender(b, MALE, MALE)
             add_meeting_events(b, events, EventsFirst.FM_MEETING_WITH_SPOUSE_INITIAL,
                                EventsFirst.FM_MEETING_WITH_SPOUSE)
         with Block(b, ELSE_IF):
             with Block(b, LIMIT):
                 b.assign(IS_IN_LIST, prisoner_list)
-                inside_limit_check_gender(b, FEMALE, MALE)
+                inside_limit_check_gender(b, MALE, MALE)
             add_meeting_events(b, events, EventsFirst.FM_MEETING_WITH_PRISONER_INITIAL,
                                EventsFirst.FM_MEETING_WITH_PRISONER)
         with Block(b, ELSE_IF):
             with Block(b, LIMIT):
                 b.assign(IS_VASSAL_OR_BELOW_OF, AFFAIRS_PARTNER)
-                inside_limit_check_gender(b, FEMALE, MALE)
+                inside_limit_check_gender(b, MALE, MALE)
             add_meeting_events(b, events, EventsFirst.FM_MEETING_WITH_LIEGE_INITIAL, EventsFirst.FM_MEETING_WITH_LIEGE)
         with Block(b, ELSE_IF):
             with Block(b, LIMIT):
                 b.assign(TARGET_IS_VASSAL_OR_BELOW, AFFAIRS_PARTNER)
-                inside_limit_check_gender(b, FEMALE, MALE)
+                inside_limit_check_gender(b, MALE, MALE)
             add_meeting_events(b, events, EventsFirst.FM_MEETING_WITH_VASSAL_INITIAL,
                                EventsFirst.FM_MEETING_WITH_VASSAL)
         with Block(b, ELSE_IF):
             with Block(b, LIMIT):
-                inside_limit_check_gender(b, FEMALE, MALE)
+                inside_limit_check_gender(b, MALE, MALE)
             add_meeting_events(b, events, EventsFirst.FM_MEETING_WITH_ACQUAINTANCE_INITIAL,
                                EventsFirst.FM_MEETING_WITH_ACQUAINTANCE)
 
@@ -406,7 +406,7 @@ def export_dot_graphviz(events, horizontal=True, censored=False, show_titles=Tru
 def define_sex_events_fm(es: EventMap):
     es.add(Sex(EventsSex.FM_WHIP_TEASE, "Whip Tease",
                stam_cost_1=0, stam_cost_2=1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                partner_removes_clothes=True,
                animation_left=IDLE, animation_right=PERSONALITY_CONTENT,
@@ -428,7 +428,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_FOOTJOB_TEASE, "Footjob Tease",
                stam_cost_1=0, stam_cost_2=1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                partner_removes_clothes=True,
                animation_left=IDLE, animation_right=PERSONALITY_CONTENT,
@@ -453,7 +453,7 @@ def define_sex_events_fm(es: EventMap):
     # TODO footjob definition
     es.add(Sex(EventsSex.FM_FOOTJOB, "Footjob",
                stam_cost_1=0, stam_cost_2=1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                partner_removes_clothes=True,
                animation_left=IDLE, animation_right=PERSONALITY_CONTENT,
@@ -471,7 +471,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_HANDJOB_TEASE, "Handjob Tease",
                stam_cost_1=0, stam_cost_2=1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                partner_removes_clothes=True,
                animation_left=IDLE, animation_right=PERSONALITY_CONTENT,
@@ -493,7 +493,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_PUSSY_TEASE, "Pussy Tease",
                stam_cost_1=0, stam_cost_2=1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                partner_removes_clothes=True,
                animation_left=IDLE, animation_right=PERSONALITY_CONTENT,
@@ -501,16 +501,15 @@ def define_sex_events_fm(es: EventMap):
                    Looking into {THEM}'s leering eyes, you know you hold the lead for now.
                    Closing in, you lean close to his ear and promise, "This will be a day you'll remember."
                    \\n\\n
-                   Simultaneously, you reach down and loosen his trousers. His member springs to attention
-                   at your womanly wiles and seductive manner. Hungry, he pulls
-                   up your dress, you press closer, and your hands play across his body.
-                   He sucks in a tight breath as you grip his cock between your thighs and rub your pussy atop it.
+                   Simultaneously, you reach down and loosen his trousers. His member springs to attention.
+                   Hungry, he pulls up your skirts, you press closer, and your hands play across his body.
+                   He sucks in a tight breath as you grip his cock between your thighs and rub your bare behind atop it.
                    """,
                options=(
                    Option(EventsSex.FM_ASS_RUB, OptionCategory.DOM,
                           "Continue teasing him with your thighs",
                           transition_text=f"""
-                              You continue to rub his rod in between your things and pussy. You can feel a sticky coolness
+                              You continue to rub his rod in between your thighs. You can feel a sticky coolness
                               from {THEM}'s tip, slicking between your legs. The contrast with the rhythmic thrusts from his 
                               hot member makes this an interesting experience.""",
                           failed_transition_text="You have better uses for that hard cock than just teasing it."),
@@ -525,16 +524,16 @@ def define_sex_events_fm(es: EventMap):
                           "Relax and let him do the thrusting along your crack",
                           transition_text=f"""
                               {THEM} wastes no time after you slow down to pick up the pace, his rod now doing the
-                              thrusting into your cunt."""),
+                              thrusting into your hole."""),
                    Option(EventsCum.FM_CUM_ON_GROIN, OptionCategory.SUB,
                           "Let him cum all over on your groin",
                           subdom_sub=0,
                           transition_text=f"""
-                              You feel his dick twitch between your thighs and pussy, alerting you of his impending climax.""")
+                              You feel his dick twitch between your thighs, alerting you of his impending climax.""")
                )))
     es.add(Sex(EventsSex.FM_TIT_TEASE, "Tits Tease",
                stam_cost_1=0, stam_cost_2=1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                partner_removes_clothes=True,
                animation_left=IDLE, animation_right=PERSONALITY_CONTENT,
@@ -542,13 +541,13 @@ def define_sex_events_fm(es: EventMap):
                    Looking into {THEM}'s leering eyes, you know you hold the lead for now.
                    Closing in, you lean close to his ear and promise, "This will be a day you'll remember."
                    \\n\\n
-                   Simultaneously, you kneel before him and open your dress, revealing your breats. You bend down and loosen his trousers. His member springs out. Enjoying the moment, you slid his dick against your chest and between your tits. 
-                   He sucks in a delighted breath as your tits rub against cock as his hands play across your body.
+                   Simultaneously, you kneel before him and unlace your  shirt, revealing your chest. You bend down and loosen his trousers. His member springs out. Enjoying the moment, you slid his dick against your chest directly between your nipples. 
+                   He sucks in a delighted breath as your skin rubs against cock as his hands play across your body.
                    """,
                options=(
                    Option(EventsSex.FM_HANDJOB, OptionCategory.DOM,
                           "Jerk him off",
-                          transition_text="You continue building a rhythm back and across his shaft with your breats.",
+                          transition_text="You continue building a rhythm back and across his shaft with your chest.",
                           failed_transition_text="You're too turned on to be satisfied with just jerking him off."),
                    Option(EventsSex.FM_BLOWJOB_DOM, OptionCategory.SUB,
                           "Kneel down and take him in your mouth",
@@ -558,7 +557,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_HANDJOB, "Handjob",
                stam_cost_1=-0.5, stam_cost_2=1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                partner_removes_clothes=True,
                desc=f"""
@@ -606,7 +605,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_BLOWJOB_DOM, "Dom Blowjob",
                stam_cost_1=0.5, stam_cost_2=2,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                partner_removes_clothes=True,
                animation_left=KNEEL_RULER_3,
                desc=f"""
@@ -643,12 +642,12 @@ def define_sex_events_fm(es: EventMap):
                               \\n\\n
                               Instead of wasting words, he places both hands behind your head and starts thrusting."""),
                    Option(EventsSex.FM_STANDING_FUCKED_FROM_BEHIND, OptionCategory.SUB,
-                          "Give his member a #italic wetter#! hole",
+                          "Give his member a #italic better#! hole",
                           transition_text=ComposedDesc(
                               TriggeredDesc(f"{NOT} = {{ {HAS_TRAIT} = {LIDA_DOM} }}", """
                                You're too turned to just suck him off! You turn around and bend over, making him an offer he #S can't#! refuse."""),
                               TriggeredDesc(f"{HAS_TRAIT} = {LIDA_DOM}", f"""
-                               "Your mouth just isn't enough!" he says as he turns you around and bends you over."""),
+                               "Your mouth isn't enough!" he says as he turns you around and bends you over."""),
                               "."
                           ),
                           ),
@@ -703,7 +702,7 @@ def define_sex_events_fm(es: EventMap):
                        )))
     es.add(Sex(EventsSex.FM_BLOWJOB_SUB, "Sub Blowjob",
                stam_cost_1=1.0, stam_cost_2=1.5,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=5,
                partner_removes_clothes=True,
                animation_left=KNEEL_RULER_3,
@@ -751,7 +750,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_DEEPTHROAT, "Deepthroat",
                stam_cost_1=1.0, stam_cost_2=2.0,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=10,
                partner_removes_clothes=True,
                animation_left=KNEEL_2,
@@ -788,7 +787,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_ASS_TEASE, "Ass Tease",
                stam_cost_1=0.5, stam_cost_2=0.75,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                root_removes_clothes=True, partner_removes_clothes=True,
                desc=f"""
@@ -797,8 +796,8 @@ def define_sex_events_fm(es: EventMap):
                    Closing in, you lean close to his ear and promise, "This will be a day you'll remember."
                    \\n\\n
                    Simultaneously, you reach down and loosen his trousers. His member springs to attention,
-                   clearly incensed from your womanly wiles and seductive manner. In reciprocation, he pulls
-                   up your dress, and you turn around, teasingly shake your shapely behind and giving his eyes
+                   clearly incensed by your seductive manner. In reciprocation, he pulls
+                   up your robe, and you turn around, teasingly shake your shapely behind and giving his eyes
                    a treat. You continue shaking while backing up until his cock is gripped by your cheeks.
                    """,
                options=(
@@ -835,7 +834,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_ASS_RUB, "Ass Rub",
                stam_cost_1=0.5, stam_cost_2=0.75,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=5,
                root_removes_clothes=True, partner_removes_clothes=True,
                desc=f"""
@@ -876,7 +875,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_HOTDOG, "Get Hotdogged",
                stam_cost_1=0.5, stam_cost_2=0.75,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_removes_clothes=True, partner_removes_clothes=True,
                desc=f"""
                    You lay back and relax as his cock repeatedly parts your cheeks. He holds your arms
@@ -899,7 +898,7 @@ def define_sex_events_fm(es: EventMap):
                               to resort to any penetration.""",
                           failed_transition_text=f"""
                               Your thoughts are occupied by his vigorous thrusts, and you can't help but wonder what it 
-                              would feel like to him thrust inside you."""),
+                              would feel like to have him thrust inside you."""),
                    Option(EventsSex.FM_REVERSE_COWGIRL, OptionCategory.DOM,
                           "Get on top and ride him facing away",
                           dom_success_adjustment=10,
@@ -907,7 +906,7 @@ def define_sex_events_fm(es: EventMap):
                               You push your groin backwards, forcing him to the ground as you get his rod inside you.""",
                           failed_transition_text=f"""
                               You try to force him to the ground, but as you push your groin backwards something
-                               #italic enters#! you and {THEM} wraps an arm around your bosom, holding you in place."""),
+                               #italic enters#! you and {THEM} wraps an arm around your chest, holding you in place."""),
                    Option(EventsSex.FM_BLOWJOB_DOM, OptionCategory.DOM,
                           "Switch to using your mouth",
                           dom_success_adjustment=10,
@@ -922,11 +921,11 @@ def define_sex_events_fm(es: EventMap):
                           "Let him use his fingers",
                           transition_text=f"""
                               As if his earlier thrusting along your ass crack was in preparation, he plunges his fingers
-                              into your wet folds, with only a moan as a weak protest from you."""),
+                              into your tight hole, with only a moan as a weak protest from you."""),
                    Option(EventsSex.FM_STANDING_FUCKED_FROM_BEHIND, OptionCategory.SUB,
                           "Get impaled from behind",
                           transition_text=f"""
-                              One of his thrusts, instead of going up, goes in between your thighs. Your wet folds dribble
+                              One of his thrusts, instead of going up, goes in between your thighs. Your tight hole dribbles
                               your anticipation onto his cock. Accepting your body's invitation, his next thrust pierces
                               into you, eliciting a moan from your lips."""),
                    Option(EventsCum.FM_ASS_TEASE_CUM_ON_ASS, OptionCategory.DOM,
@@ -943,12 +942,12 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_STANDING_FINGERED_FROM_BEHIND, "Fingered from Behind",
                stam_cost_1=1, stam_cost_2=-0.5,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=5,
                root_removes_clothes=True,
                animation_right=SCHADENFREUDE,
                desc=f"""
-                   His finger #sub squelches against your wet folds#! as he extracts juices from your lower lips while
+                   His finger #sub squelches against your wet hole#! as he extracts juices from your eager body while
                    extracting moans from your upper lips. Your head leans back and he occasionally takes the liberty
                    of entwining his tongue with yours.""",
                options=(
@@ -991,17 +990,17 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_STANDING_FUCKED_FROM_BEHIND, "Standing Fucked from Behind",
                stam_cost_1=2, stam_cost_2=1.5,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=7,
                root_removes_clothes=True, partner_removes_clothes=True,
                animation_left=BOW_3, animation_right=SCHADENFREUDE,
                desc=ComposedDesc(f"""
                    Sometimes bending you over and sometimes #sub pulling your hair to keep you upright#!, 
-                   you're at the mercy of {THEM}. His vigorous thrusts make you knees weak and you find it
+                   you're at the mercy of {THEM}. His vigorous thrusts make your knees weak and you find it
                    hard to stay on your feet.
                    \\n\\n""",
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} <= -20", f"""
-                   "You're my bitch now," he punctuates with a resounding spank on your ass.
+                   "You're my whore now," he punctuates with a resounding spank on your ass.
                    """),
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10", f"""
                    "Is that all?" You manage to get out in between his thrusts, taunting and teasing him.
@@ -1052,7 +1051,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_REVERSE_COWGIRL, "Ride Facing Away",
                stam_cost_1=3, stam_cost_2=1.5,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=15,
                root_removes_clothes=True, partner_removes_clothes=True,
                desc=ComposedDesc(f"""
@@ -1106,7 +1105,7 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_COWGIRL, "Ride Facing Them",
                stam_cost_1=2.0, stam_cost_2=1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=10,
                root_removes_clothes=True, partner_removes_clothes=True,
                desc=ComposedDesc(f"""
@@ -1161,12 +1160,12 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_MISSIONARY, "Lie on Back",
                stam_cost_1=2.0, stam_cost_2=1.5,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=10,
                animation_left=FLIRTATION_LEFT, animation_right=FLIRTATION_LEFT,
                root_removes_clothes=True, partner_removes_clothes=True,
                desc=ComposedDesc(f"""
-                   You lie there, legs straddling his shoulders, each of {THEM}'s vigorous thrusts slapping loudly against your cheeks as
+                   You lie there, legs straddling his shoulders, each of {THEM}'s vigorous thrusts slapping loudly against your thighs as
                    waves of pleasure course through your core. You have nearly no control over your body
                    """,
                                  TriggeredDesc(f"{HAS_TRAIT} = {LIDA_SUB}", """
@@ -1178,9 +1177,9 @@ def define_sex_events_fm(es: EventMap):
                    Option(EventsSex.FM_COWGIRL, OptionCategory.DOM,
                           "Roll with him and get on top",
                           transition_text=f"""
-                              You grab {THEM} as he's recovering from a thrust and push him sideways with all your strength, landing on top of him.""",
+                              You grab {THEM} as he's recovering from a particularly hard thrust and push him sideways with all your strength, landing on top of him.""",
                           failed_transition_text=f"""
-                              You grab {THEM} as he's recovering from a thrust and manage to get on your side, but he grabs and puts you back down.
+                              You grab {THEM} as he's recovering from a particularly hard thrust and manage to get on your side, but he grabs and puts you back down.
                               """),
                    Option(EventsSex.FM_MISSIONARY, OptionCategory.SUB,
                           "Keep your legs up",
@@ -1210,12 +1209,12 @@ def define_sex_events_fm(es: EventMap):
                )))
     es.add(Sex(EventsSex.FM_PRONE_BONE, "Lie Face Down",
                stam_cost_1=3.5, stam_cost_2=2.5,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=15,
                animation_left=FLIRTATION_LEFT, animation_right=FLIRTATION_LEFT,
                root_removes_clothes=True, partner_removes_clothes=True,
                desc=ComposedDesc(f"""
-                   You are face down with your legs closed while {THEM} thrusts deep in your moist womb, your mind melting from the echoing sound of
+                   You are face down with your legs closed while {THEM} thrusts deep in your tight hole, your mind melting from the echoing sound of
                    #bold your cheeks getting clapped#! as each #italic ravaging#! stroke sends #sub paralyzing#! jolts of pleasure through your whole being. \\n\\n
                    He's in complete control of your body and mind
                    """,
@@ -2037,15 +2036,15 @@ def define_sex_events(es: EventMap):
 def define_cum_events_fm(es: EventMap):
     es.add(Cum(EventsCum.FM_HANDJOB_CUM_IN_HAND, "A Load in Hand is Worth Two in the Bush",
                subdom_change=1, root_become_more_dom_chance=20,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                terminal_option=Option(None, OptionCategory.OTHER, "Clean your hands on a nearby cloth"),
                animation_left=BOREDOM, animation_right=SHAME,
                desc=ComposedDesc("""
                His back arches, instinctively thrusting forward to fill an imaginary womb as he spurts his load onto your open palm.
                \\n\\n""",
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10", """
-               "That's it?" you say as you wipe his seed onto his chest, "How do you hope to please any
-               woman with that pathetic stamina?" His #dom dejected look 
+               "That's it?" you say as you wipe his seed onto his chest, "How do you hope to please anyone
+               with that pathetic stamina?" His #dom dejected look 
                pleases#! you #italic - maybe your personality is twisted?#!
                """),
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} > -10 \n{SCOPE}:{SUBDOM} < 10", f"""
@@ -2058,7 +2057,7 @@ def define_cum_events_fm(es: EventMap):
                                  )))
     es.add(Cum(EventsCum.FM_ASS_TEASE_CUM_ON_ASS, "Icing on the Cake",
                subdom_change=0,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                terminal_option=Option(None, OptionCategory.OTHER, "Clean yourself and get dressed"),
                desc=ComposedDesc(f"""
                    You don't see it as much as feel it when a few splashes of warmth land on your ass, signaling the end of
@@ -2086,7 +2085,7 @@ def define_cum_events_fm(es: EventMap):
                ))
     es.add(Cum(EventsCum.FM_BLOWJOB_CUM_ON_FACE, "Painting your Face",
                subdom_change=-2, root_become_more_sub_chance=15,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                animation_left=SHAME, animation_right=SCHEME,
                terminal_option=Option(None, OptionCategory.OTHER, "Sample some stray globs of cum"),
                desc=ComposedDesc(f"""
@@ -2099,19 +2098,19 @@ def define_cum_events_fm(es: EventMap):
                    to aim away from my eyes!" He better #dom behave#! if he wishes to see you again.
                    """),
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} > -10 \n{SCOPE}:{SUBDOM} < 10", f"""
-                   As you open your eyes you are met with {THEM}'s pleased expression. "You look great", he remarks with a smile.
+                   As you open your eyes you are met with {THEM}'s pleased expression. "You look even better now", he remarks with a crooked smile.
                    """),
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} <= -10", f"""
                    "You look beautiful covered in my cum," {THEM} say while #sub wiping his cock against your face#!.
                    Taking advantage of your helpless state, he takes some liberties in degrading you,
                    \\n\\n
-                   "Regardless of who you lay with later, even with them, you'll remember this moment with my cum marking your face."
+                   "Regardless of who you lay with later, even with them, you'll remember my cum marking your face like this."
                    """),
 
                                  )))
     es.add(Cum(EventsCum.FM_BLOWJOB_CUM_IN_MOUTH_DOM, "Satisfying your Sweet Tooth",
                subdom_change=-1, root_become_more_sub_chance=10,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                animation_left=DISGUST, animation_right=SCHADENFREUDE,
                terminal_option=Option(None, OptionCategory.OTHER, "Wipe away any cum that might've escaped"),
                # TODO triggered text depending on cum fetish
@@ -2125,7 +2124,7 @@ def define_cum_events_fm(es: EventMap):
                ))
     es.add(Cum(EventsCum.FM_BLOWJOB_CUM_IN_MOUTH_SUB, "Down the Gullet",
                subdom_change=-2, root_become_more_sub_chance=20,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                animation_left=SHAME, animation_right=SCHADENFREUDE,
                terminal_option=Option(None, OptionCategory.OTHER, "Recover from having your throat used so roughly"),
                desc=ComposedDesc(f"""
@@ -2137,9 +2136,9 @@ def define_cum_events_fm(es: EventMap):
                    "Swallow it," he says in a commanding tone. \\n\\n
                    """),
                                  """
-                                 As you have no choice apart from drowning, you swallow it. As he
-                                 thrusted deeply, most of his seed already flowed down your throat.
-                                 You #sub gulp audibly and slurp it all down#!.
+                                 As you have no choice apart from drowning, you do as you're told. As he
+                                 thrusts deeply, the bulk of his seed has already flowed down your throat.
+                                 You #sub gulp audibly and swallow it all down#!.
                                  \\n\\n""",
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} <= -10", f"""
                    "You look beautiful covered in my cum," {THEM} says while #sub wiping his cock against your face#!.
@@ -2156,12 +2155,12 @@ def define_cum_events_fm(es: EventMap):
                ))
     es.add(Cum(EventsCum.FM_RUINED_ORGASM, "A Firm Grasp on His Release",
                subdom_change=2, root_become_more_dom_chance=35,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                animation_left=DISMISSAL, animation_right=BEG,
                terminal_option=Option(None, OptionCategory.OTHER, "Leave him yearning and frustrated"),
                desc=f"""
-                   {THEM} arches his back he's clearly about to to climax, but you interrupt by firmly grabbing his
-                   shaft close to his body. Even if he wanted to, he physically cannot release his seed.
+                   {THEM} arches his back - he's clearly about to to climax - but you interrupt by firmly grabbing his
+                   shaft at the base. Even if he wanted to, he physically cannot release his seed.
                    "Did I say you could cum?" You cruelly intone as you grasp his balls with your other hand.
                    \\n\\n
                    "Please, I'm so close," he whines.
@@ -2172,25 +2171,24 @@ def define_cum_events_fm(es: EventMap):
                ))
     es.add(Cum(EventsCum.FM_PULL_OUT_CUM_ON_ASS, "More Icing on the Cake",
                subdom_change=1,
-               root_gender=FEMALE, partner_gender=MALE,
-               preg_chance_1=0.05 * PREGNANCY_CHANCE,
+               root_gender=MALE, partner_gender=MALE,
                animation_left=FLIRTATION_LEFT, animation_right=PERSONALITY_BOLD,
                root_become_more_sub_chance=10,
                terminal_option=Option(None, OptionCategory.OTHER, "Clean yourself and get dressed"),
                desc=ComposedDesc(
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10", f"""
-                   Fearing the consequences of impregnating you, {THEM} pulls out just before he goes past his limit.
+                   Fearing the consequences of defiling you, {THEM} pulls out just before he goes past his limit.
                    He instead shoots his seed on your ass, several spurts of warmth announcing the end of the session. \\n\\n
                    "It is a privilege to satisfy your womb's needs, {ME_FULL_REGNAL}", he says while devotedly cleaning you up.
                    """),
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} > -10 \n{SCOPE}:{SUBDOM} < 10", f"""
-                   Perhaps fearing the consequences of impregnating you or just showing some courtesy, {THEM} pulls out just as he reaches his limit.
+                   Perhaps fearing the consequences of defiling you or just showing some courtesy, {THEM} pulls out just as he reaches his limit.
                    He instead shoots his seed on your ass and holes, several spurts of warmth announcing the end of the session.
                     \\n\\n
                    "What happens next?", he says while #italic clearly#! staring at your shapes with a lustful gaze.
                    """),
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} <= -10", f"""
-                   Perhaps out of courtesy or simply not wanting to impregnate you, {THEM} pulls out just as he goes past his limit.
+                   Perhaps out of courtesy or simply not wanting to defile you quite yet, {THEM} pulls out just as he goes past his limit.
                    He instead shoots his seed on your whole groin, several spurts of warmth announcing the end of the session. \\n\\n
                    With a sudden #sub smack on your ass#!, "Let's meet again soon."
                    """),
@@ -2203,13 +2201,12 @@ def define_cum_events_fm(es: EventMap):
                ))
     es.add(Cum(EventsCum.FM_CUM_ON_GROIN, "Snowfall on the Bushes",
                subdom_change=-1,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=5,
-               preg_chance_1=PREGNANCY_CHANCE * 0.01,
                animation_left=DISMISSAL, animation_right=PERSONALITY_BOLD,
                terminal_option=Option(None, OptionCategory.OTHER, "Clean up the white coating on your groin"),
                desc=ComposedDesc(f"""
-                   {THEM} stops himself mere inches from your groin, coating your hips and holes with a thick layer of white. 
+                   {THEM} stops himself mere inches from your groin, coating your quivering hole with a thick layer of white. 
                    \\n\\n
                    Your can feel his warmth #sub on#! you.""",
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10", f"""
@@ -2230,25 +2227,24 @@ def define_cum_events_fm(es: EventMap):
                ))
     es.add(Cum(EventsCum.FM_CREAMPIE_REGULAR, "Plowing the Fields",
                subdom_change=-3,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=20,
-               preg_chance_1=PREGNANCY_CHANCE,
                animation_left=WORRY, animation_right=PERSONALITY_BOLD,
                terminal_option=Option(None, OptionCategory.OTHER, "Wipe away the cum dripping down your thighs"),
                desc=ComposedDesc(f"""
-                   "Ugh," {THEM} grunts as he plunges to the hilt, his rod wildly throbbing inside you.
-                    As the load overflowing around his rod drips out of you, a white contour remains on your lips.""",
+                   "Ugh," {THEM} grunts as he plunges to the hilt, his rod throbbing inside you.
+                    As the load overflowing around his rod drips out of you, a thick white contour remains on your rim.""",
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10", """
                    "I-I don't know what came over me!" he says, avoiding your gaze with a look of deep shame across his face.
                    """),
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} > -10 \n{SCOPE}:{SUBDOM} < 10", f"""
-                   "You were just so tight!", {THEM} awkwardly says, as if trying to justify himself.
+                   "You were just... so tight!", {THEM} awkwardly says, as if trying to justify himself.
                    """),
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} <= -10", """
                    With a #sub smack on your ass#!, "Let's do this again sometime.", before finally pulling out.
                    """),
 
-                                 """\\n\\nYou're left standing as his seed #sub seeps#! out of your slit, your body enjoying the newfound warmth within it. \\n\\n""",
+                                 """\\n\\nYou're left standing as his seed #sub seeps#! out of your hole, your body enjoying the newfound warmth within it. \\n\\n""",
 
                                  TriggeredDesc(f"{HAS_TRAIT} = {LIDA_SUB}", """
                    Your body is brimming with anticipation as you softly say: "Y-you can do it again if you want". You #bold #sub want#!#! him to do it again, \\n"""),
@@ -2259,13 +2255,12 @@ def define_cum_events_fm(es: EventMap):
                ))
     es.add(Cum(EventsCum.FM_CREAMPIE_ON_TOP, "Cherry on Top",
                subdom_change=3,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=30,
-               preg_chance_1=PREGNANCY_CHANCE,
                animation_left=FLIRTATION_LEFT, animation_right=SHOCK,
                terminal_option=Option(None, OptionCategory.OTHER, "Wipe the silky threads hanging from your slit"),
                desc=ComposedDesc(f"""
-                   {THEM} grunts when your slit fully swallows his rod, his muscles locking up as surges of soft warmth coat your insides.
+                   {THEM} grunts when your hole fully swallows his rod, his muscles locking up as surges of soft, liquid warmth coat your insides.
                    \\n\\n 
                    """,
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} < -10", f"""
@@ -2276,35 +2271,34 @@ def define_cum_events_fm(es: EventMap):
                    "What are you doing, {ME_NAME}?!", {THEM} says completely stunned.
                    """),
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} > 10", f"""
-                   "Whatever you need, my {ME_LADY_LORD}!", he says while #dom submitting# to being milked by your womb\\n\\n
+                   "Whatever you need, my {ME_LADY_LORD}!", he says while #dom submitting# to being milked by your rim\\n\\n
                    """),
-                                 """You slowly get up, white threads hanging from your slit as drops splash onto the ground. """,
+                                 """You slowly get up, white threads hanging from your hole as drops splash onto the ground. """,
                                  TriggeredDesc(f"{HAS_TRAIT} = {LIDA_DOM}", f"""
                    You stare intently into his eyes, knowing he couldn't have stopped you from #dom taking#! his seed no matter how hard he tried - so #dom you did#!.""")
                                  ),
                ))
     es.add(Cum(EventsCum.FM_CREAMPIE_BREED, "Something to Remember Him By",
                subdom_change=-6,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_sub_chance=45,
-               preg_chance_1=PREGNANCY_CHANCE * 1.5,
                animation_left=WORRY, animation_right=PERSONALITY_BOLD,
                terminal_option=Option(None, OptionCategory.OTHER,
-                                      "Feel his seed trickle from your slit for the rest of the day"),
+                                      "Feel his seed trickle from your hole for the rest of the day"),
                desc=ComposedDesc(
                    f"""
                     {THEM} grunts loudly with a look of utter relief on his face as he unloads in you, pushing further in with each deep thrust
                      - you feel a growing #bold warmth#! begin coating your insides...
                    \\n\\n
                     """,
-                   """You lie there panting, a white sliver dripping from your #sub conquered#! slit as his seed #bold fills#! your womb.""",
+                   """You lie there panting, a white sliver dripping from your #sub conquered#! hole as his seed #bold fills#! your body.""",
                    TriggeredDesc(f"{HAS_TRAIT} = {LIDA_SUB}", """
                    He plowed you like a cheap whore, his pounding intensifying as he filled you up and you had with #sub no say#! in it.
                     Are you so irresistible that he couldn't help but cum inside """),
                    TriggeredDesc(f"{HAS_TRAIT} = {LIDA_SUB} \n {NOT} = {{ {HAS_TRAIT} ={PREGNANT} }}", f"""
                    or is he #italic trying#! to breed you? Either way, you #sub love#! the feeling.""", ),
                    TriggeredDesc(f"{HAS_TRAIT} = {LIDA_SUB} \n {HAS_TRAIT} = {PREGNANT}", f"""
-                   even with a bun already in you? How #sub flattering#!.""", ),
+                   even with a load already in you? How #sub flattering#!.""", ),
                    TriggeredDesc(f"{HAS_TRAIT} = {LIDA_SUB}", """\\n\\n"""),
 
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10", f"""
@@ -2314,10 +2308,10 @@ def define_cum_events_fm(es: EventMap):
                    "I'll clean it, forgive me!", he pleads as he starts #dom licking#! you clean, having pulled out #S far#! too late.
                    """),
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10 \n{NOT} = {{ {HAS_TRAIT} ={LIDA_SUB} }}", f"""
-                   \\n"Leave, #dom fool#!!" you say while #warning furiously#! kicking him away from your slit, banishing him bare from your chamber.
+                   \\n"Leave, #dom fool#!!" you say while #warning furiously#! kicking him away from between your legs, banishing him bare from your chamber.
                    """),
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10 \n{HAS_TRAIT} = {LIDA_SUB}", f"""
-                   \\n"Oh, that's alright" you say while still #sub blushing#! from his #italic sudden#! burst of #bold intense#! vigor.
+                   \\n"Oh, that's alright," you say while still #sub blushing#! from his #italic sudden#! burst of #bold intense#! vigor.
                    """),
 
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} <= -10", f"""
@@ -2329,17 +2323,17 @@ def define_cum_events_fm(es: EventMap):
                    """),
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} <= -10 \n{HAS_TRAIT} = {LIDA_SUB}", f"""
                    \\n\\n"Come again sometime", you say with a #italic #sub smile#!#!. He #sub smacks#! your ass with a grin,
-                    running two fingers along your slit before starting to dress.  
+                    running two fingers along your dripping hole before starting to dress.  
                    """),
                    TriggeredDesc(f"{SCOPE}:{SUBDOM} <= -10 \n{NOT} = {{ {HAS_TRAIT} ={LIDA_SUB} }}", f"""
                    \\n"Did I say you could #italic do that#!, {THEM}?!". He looks at you with a smug grin, #italic smacking#! your ass before dressing.
                    """),
 
                    TriggeredDesc(f"{HAS_TRAIT} = {LIDA_DOM}", """
-                   \\n\\nAs if getting fucked like a cheap whore wasn't enough, he even #warning seeded#! you like you're just some servant girl at a feast! 
+                   \\n\\nAs if getting fucked like a cheap whore wasn't enough, he even #warning seeded#! you like you're just some whore at a brothel! 
                    """, ),
                    TriggeredDesc(f"{HAS_TRAIT} = {LIDA_DOM} \n {NOT} = {{ {HAS_TRAIT} ={PREGNANT} }}", f"""
-                   To enjoy the warmth of your womb is an #italic unrivaled privilege#!,
+                   To enjoy the warmth of your hole is an #italic unrivaled privilege#!,
                     how #S #dom dare#!#! he demand more by trying to #S mate with you!?#!
                    """, ),
                    TriggeredDesc(f"{HAS_TRAIT} = {LIDA_DOM} \n {HAS_TRAIT} = {PREGNANT}", f"""
@@ -2360,14 +2354,13 @@ def define_cum_events_fm(es: EventMap):
                ))
     es.add(Cum(EventsCum.FM_CREAMPIE_KEEP, "Bearing the Bloodline",
                subdom_change=2,
-               root_gender=FEMALE, partner_gender=MALE,
+               root_gender=MALE, partner_gender=MALE,
                root_become_more_dom_chance=20,
-               preg_chance_1=PREGNANCY_CHANCE * 2,
                animation_left=ECSTASY, animation_right=SHOCK,
                terminal_option=Option(None, OptionCategory.OTHER, "No need to clean up, it's #bold all#! inside you"),
                desc=ComposedDesc(f"""
-                   As you feel {THEM} close to finishing you clasp around him, each tense twitch of his rod keeping him #dom locked#!
-                    inside as he #S fully#! unloads his hot load in your womb.
+                   As you feel {THEM} close to finishing, you clench your rim around him tight, each tense twitch of his rod keeping him #dom locked#!
+                    inside as he #S fully#! unloads his hot load in your greedy body.
                    \\n\\n
                     """,
                                  TriggeredDesc(f"{SCOPE}:{SUBDOM} >= 10", f"""
@@ -2731,6 +2724,7 @@ def define_first_events(es: EventMap):
     source_sex_events = get_source_sex_events(es)
     es.add(First(EventsFirst.FM_MEETING_WITH_SPOUSE, "Spicing it Up",
                  source_sex_events=source_sex_events, background="bedchamber",
+                 root_gender=MALE, partner_gender=MALE,
                  desc=f"""
                  You light some candles and sprinkle some scented petals in your bedchamber,
                  making it an even more inviting den of intimacy. As before, you left
@@ -2740,6 +2734,7 @@ def define_first_events(es: EventMap):
                  gives a brief greeting before climbing into bed with you."""))
     es.add(First(EventsFirst.FM_MEETING_WITH_SPOUSE_INITIAL, "Flowers in Bloom",
                  source_sex_events=source_sex_events, background="garden",
+                 root_gender=MALE, partner_gender=MALE,
                  desc=f"""
                  As it is beautiful day, you have a stroll in your garden. 
                  In your bed chambers, you left a note to invite {THEM} outside.
@@ -2755,6 +2750,7 @@ def define_first_events(es: EventMap):
                  """))
     es.add(First(EventsFirst.FM_MEETING_WITH_VASSAL, "Chains of Command",
                  source_sex_events=source_sex_events, background="study",
+                 root_gender=MALE, partner_gender=MALE,
                  desc=f"""
                  You send a summons to {THEM} about helping you with interpreting some passages in your study.
                  By now, that's tacitly understood as an invitation to a tryst, which he gladly accepts.
@@ -2762,6 +2758,7 @@ def define_first_events(es: EventMap):
                  """))
     es.add(First(EventsFirst.FM_MEETING_WITH_VASSAL_INITIAL, "Privileges of Power",
                  source_sex_events=source_sex_events, background="study",
+                 root_gender=MALE, partner_gender=MALE,
                  desc=f"""
                  You summon {THEM} to your study, giving instructions to your 
                  guards to let him in then leave afterwards. The guards' faces betray their guesses,
@@ -2776,6 +2773,7 @@ def define_first_events(es: EventMap):
                  """))
     es.add(First(EventsFirst.FM_MEETING_WITH_LIEGE, "Mead in my Room?",
                  source_sex_events=source_sex_events, background="bedchamber",
+                 root_gender=MALE, partner_gender=MALE,
                  desc=f"""
                  It's another long council meeting, and {THEM}'s councillors start streaming out of the
                  room. You, however, remain in the room and say, "My Lord, I have some more council
@@ -2787,18 +2785,20 @@ def define_first_events(es: EventMap):
                  """))
     es.add(First(EventsFirst.FM_MEETING_WITH_LIEGE_INITIAL, "An Intimate Discussion",
                  source_sex_events=source_sex_events, background="council_chamber",
+                 root_gender=MALE, partner_gender=MALE,
                  animation_left=BOW,
                  desc=f"""
                  After the council meeting, {THEM} dismisses you all. However, you take your time
                  leaving and soon you two are the only ones left in the chamber. "Is there something
                  you need?" he asks amicably.
                  \\n\\n
-                 Instead of answering, you twirl your hair and put an arm under your bosom, making
+                 Instead of answering, you twirl your hair and put an arm under your delicate chest, making
                  an effort to highlight it. You saunter closer to him and see an inviting amusement in 
                  his eyes, "You, my Lord."
                  """))
     es.add(First(EventsFirst.FM_MEETING_WITH_PRISONER, "Taste of Heaven in Hell",
                  source_sex_events=source_sex_events, background="dungeon",
+                 root_gender=MALE, partner_gender=MALE,
                  animation_right=PRISON_HOUSE,
                  desc=f"""
                  You descend to {THEM}'s cell without much ceremony.
@@ -2813,6 +2813,7 @@ def define_first_events(es: EventMap):
                  Pushing such thoughts to the back of your mind, you approach him."""))
     es.add(First(EventsFirst.FM_MEETING_WITH_PRISONER_INITIAL, "The Sweetest Torture",
                  source_sex_events=source_sex_events, background="dungeon",
+                 root_gender=MALE, partner_gender=MALE,
                  animation_right=PRISON_HOUSE,
                  desc=f"""
                  You descend down the stone stairs to your dungeon and muse that giving a prisoner
@@ -2829,6 +2830,7 @@ def define_first_events(es: EventMap):
                  """))
     es.add(First(EventsFirst.FM_MEETING_WITH_ACQUAINTANCE, "Who Owns Who",
                  source_sex_events=source_sex_events, background="sitting_room",
+                 root_gender=MALE, partner_gender=MALE,
                  desc=f"""
                  Communicating via your servants, you inform {THEM} that you'd like to get to know them better
                  in your sitting room. Wise to your intentions, he wastes no time arriving, noting the lack of 
@@ -2837,6 +2839,7 @@ def define_first_events(es: EventMap):
                  You lock eyes, and without exchanging any words do all the communication with your bodies."""))
     es.add(First(EventsFirst.FM_MEETING_WITH_ACQUAINTANCE_INITIAL, "A Chance Encounter",
                  source_sex_events=source_sex_events, background="courtyard",
+                 root_gender=MALE, partner_gender=MALE,
                  desc=f"""
                  Your servants inform you that {THEM} is strolling along your courtyard. You give further instructions
                  to clear out the guards and any other personage near that location. A knowing gleam appears in their
