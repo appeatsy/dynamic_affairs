@@ -2764,12 +2764,12 @@ def define_first_events(es: EventMap):
                  guards to let him in then leave afterwards. The guards' faces betray their guesses,
                  but you pay them to be discrete thus they make no comments.
                  \\n\\n
-                 Entering the study, "You summoned me, my Lady?"
+                 Entering the study, "You summoned me, my Leige?"
                  \\n\\n
                  "Yes, I want to consult with you on this passage here", you say as you reach for one of the books
-                 on your bookshelf, making sure that as you do so, one of the straps on your dress would come loose
-                 and present your feminine assets. Blushing, they turn away, but you pretend as if you didn't notice 
-                 and instead walk up to him and say in a coy tone, "Could you help me with this?"
+                 on your bookshelf, making sure that as you do so, your robe would come loose at the shoulders
+                 and conveniently slip downward, offering a tantalising glimpse of skin. Blushing, they turn away, but you pretend as if you didn't notice 
+                 and instead walk up to him and whisper in a coy tone, "Could you help me with this?"
                  """))
     es.add(First(EventsFirst.FM_MEETING_WITH_LIEGE, "Mead in my Room?",
                  source_sex_events=source_sex_events, background="bedchamber",
@@ -2792,8 +2792,8 @@ def define_first_events(es: EventMap):
                  leaving and soon you two are the only ones left in the chamber. "Is there something
                  you need?" he asks amicably.
                  \\n\\n
-                 Instead of answering, you twirl your hair and put an arm under your delicate chest, making
-                 an effort to highlight it. You saunter closer to him and see an inviting amusement in 
+                 Instead of answering, you twirl your hair and slip your free hand down the length of your body, making
+                 an effort to attract his admiring gaze. You saunter closer to him and see an inviting amusement in 
                  his eyes, "You, my Lord."
                  """))
     es.add(First(EventsFirst.FM_MEETING_WITH_PRISONER, "Taste of Heaven in Hell",
@@ -2863,7 +2863,7 @@ def define_first_events(es: EventMap):
                  making it an even more inviting den of intimacy. As before, you left
                  a cryptic message inviting {THEM}.
                  \\n\\n
-                 He arrives promptly, clearly excited with your spontaneous trysts, and only
+                 She arrives promptly, clearly excited with your spontaneous trysts, and only
                  gives a brief greeting before climbing into bed with you."""))
     es.add(First(EventsFirst.MF_MEETING_WITH_SPOUSE_INITIAL, "Flowers in Bloom",
                  source_sex_events=source_sex_events, background="garden",
@@ -2872,29 +2872,29 @@ def define_first_events(es: EventMap):
                  As it is beautiful day, you have a stroll in your garden. 
                  In your bed chambers, you left a note to invite {THEM} outside.
                  \\n\\n
-                 Upon spotting you, he rushes forward, "What is it you wanted to see me
+                 Upon spotting you, she rushes forward, "What is it you wanted to see me
                  about?" Curious, and a little bit panicked with the cryptic content of your message.
                  \\n\\n
                  Instead of answering, you beam him your brightest smile, 
                  "Let's make love here," pointing to a shaded awning free from prying eyes.
                  \\n\\n
-                 Your strategy to put him on his toes and then deliver such a direct line works
-                 and he stands there, flustered at your proposal but not rejecting it.
+                 Your strategy to put her on his toes and then deliver such a direct line works
+                 and she stands there, flustered at your proposal but not rejecting it.
                  """))
     es.add(First(EventsFirst.MF_MEETING_WITH_VASSAL, "Chains of Command",
                  source_sex_events=source_sex_events, background="study",
                  root_gender=MALE, partner_gender=FEMALE,
                  desc=f"""
                  You send a summons to {THEM} about helping you with interpreting some passages in your study.
-                 By now, that's tacitly understood as an invitation to a tryst, which he gladly accepts.
-                 Almost immediately, he shows up in your study.
+                 By now, that's tacitly understood as an invitation to a tryst, which she gladly accepts.
+                 Almost immediately, she shows up in your study.
                  """))
     es.add(First(EventsFirst.MF_MEETING_WITH_VASSAL_INITIAL, "Privileges of Power",
                  source_sex_events=source_sex_events, background="study",
                  root_gender=MALE, partner_gender=FEMALE,
                  desc=f"""
                  You summon {THEM} to your study, giving instructions to your 
-                 guards to let him in then leave afterwards. The guards' faces betray their guesses,
+                 guards to let her in then leave afterwards. The guards' faces betray their guesses,
                  but you pay them to be discrete thus they make no comments.
                  \\n\\n
                  Entering the study, "You summoned me, my Lady?"
